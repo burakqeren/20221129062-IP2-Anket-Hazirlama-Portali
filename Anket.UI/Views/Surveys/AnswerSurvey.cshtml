@@ -1,0 +1,107 @@
+﻿@{
+    Layout = "~/Views/Shared/_PageLayout.cshtml";
+}
+
+<div class="container mt-3">
+    <h2 id="name"></h2>
+    <strong>Açıklama:</strong><p id="description"></p>
+    <strong>Kategori:</strong> <p id="category"></p>
+
+    <hr />
+
+    <div id="questions">
+        <div class="form-group">
+        </div>
+    </div>
+    <br />
+    <button class="btn btn-primary" id="submitSurvey">Onayla</button>
+    <a href="/" class="btn btn-secondary">Anasayfa</a>
+</div>
+
+
+
+
+@section _scripts {
+    <script>
+        $(document).ready(function () {
+            var apiBaseUrl = "@ViewBag.ApiBaseUrl";
+
+
+            var token = localStorage.getItem("token");
+
+            if (token == "" || token == null) {
+                location.href = "/Login";
+            }
+
+
+            $.ajax({
+                url: apiBaseUrl + 'Surveys/GetSurveyListAllDetail/@ViewBag.SurveyId',
+                type: 'GET',
+                headers: {
+                    "Authorization": "Bearer " + token
+                },
+                contentType: "application/json",
+                success: function (data) {
+                    console.log(data);
+                    $("#name").html(data.name);
+                    $("#description").html(data.name);
+                    $("#category").html(data.category.name);
+                    $.each(data.questions, function (i, item) {
+                        $("#questions").append('<label>' + item.text + '</label><textarea class="form-control answer" data-questionid="' + item.id + '" ></textarea>');
+
+                    });
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            });
+
+
+
+            $("#submitSurvey").on("click", function () {
+                if (confirm("Anketi bitirmeyi onaylıyor musunuz?")) {
+                   
+                    var ajaxRequests = [];
+                   
+                    $.each($(".answer"), function (i, item) {
+
+                        var obj = new Object();
+                        obj.text = $(this).val();
+                        obj.questionId = $(this).data("questionid");
+                        obj.appUserId = $("#sessionUserId").val();
+
+                        console.log(obj);
+
+                        var request = $.ajax({
+                            url: apiBaseUrl + 'Respones',
+                            type: 'POST',
+                            data: JSON.stringify(obj),
+                            headers: {
+                                "Authorization": "Bearer " + token
+                            },
+                            contentType: "application/json",
+                            success: function (data) {
+
+
+                            },
+                            error: function (e) {
+                                console.log(e);
+                            }
+                        });
+
+                        ajaxRequests.push(request);
+                    });
+
+                    $.when.apply($, ajaxRequests).always(function () {
+                        alert("Teşekkürler.");
+                        window.location.href = '/';
+                    });
+                }
+            });
+
+
+
+
+        });
+    </script>
+}

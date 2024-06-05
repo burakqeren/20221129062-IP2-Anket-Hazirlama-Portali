@@ -1,0 +1,227 @@
+﻿
+<div class="container">
+  
+    <div class="table-responsive">
+        <table id="categoryTable" class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Soru</th>
+                    <th scope="col">Kullanıcı</th>
+                    <th scope="col">Cevap</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class=""></div>
+<div id="editModal" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Düzenleniyor:&nbsp;<span id="editName"></span></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="editIdInput" value="0" />
+                <input type="text" id="editInput" class="form-control" />
+            </div>
+            <div class="modal-footer">
+                <button id="confirmEdit" type="button" class="btn btn-primary">Kaydet</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section _scripts {
+    <script>
+        $(document).ready(function () {
+            var apiBaseUrl = "@ViewBag.ApiBaseUrl";
+
+            var token = localStorage.getItem("token");
+
+            if (token == "" || token == null) {
+                location.href = "/Login";
+            }
+
+            getAll();
+
+
+
+
+            //CRUD
+            // function getAll() {
+            //     $.ajax({
+            //         url: apiBaseUrl + 'Respones',
+            //         type: 'GET',
+            //         data: {},
+            //         headers: {
+            //             "Authorization": "Bearer " + token
+            //         },
+            //         contentType: "application/json",
+            //         success: function (data) {
+            //             updateTable(data);
+            //         },
+            //         error: function (e) {
+            //             console.log(e);
+            //         }
+            //     });
+            // }
+
+
+            function getAll() {
+                $.ajax({
+                    url: apiBaseUrl + 'Respones/GetResponseUserDetailAndQuestion',
+                    type: 'GET',
+                    data: {},
+                    headers: {
+                        "Authorization": "Bearer " + token
+                    },
+                    contentType: "application/json",
+                    success: function (data) {
+                        console.log(data);
+                        updateTable(data);
+                    },
+                    error: function (e) {
+                        console.log(e);
+                    }
+                });
+            }
+            function create() {
+                var value = $("#createInput").val()
+                if (value != "") {
+                    var obj = new Object();
+                    obj.name = value;
+                    $.ajax({
+                        url: apiBaseUrl + 'Respones',
+                        type: 'POST',
+                        data: JSON.stringify(obj),
+                        headers: {
+                            "Authorization": "Bearer " + token
+                        },
+                        contentType: "application/json",
+                        success: function (data) {
+                            $("#createInput").val("");
+                            getAll();
+
+                        },
+                        error: function (e) {
+                            console.log(e);
+                        }
+                    });
+                }
+
+            }
+            function edit() {
+                var id = $("#editIdInput").val()
+                var value = $("#editInput").val()
+                if (value != "" && id != "" && id != 0) {
+                    var obj = new Object();
+                    obj.name = value;
+                    obj.id = id;
+                    $.ajax({
+                        url: apiBaseUrl + 'Respones',
+                        type: 'PUT',
+                        data: JSON.stringify(obj),
+                        headers: {
+                            "Authorization": "Bearer " + token
+                        },
+                        contentType: "application/json",
+                        success: function (data) {
+                            $("#editInput").val("");
+                            $("#editIdInput").val("");
+                            $('#editModal').modal('hide')
+                            getAll();
+
+                        },
+                        error: function (e) {
+                            console.log(e);
+                        }
+                    });
+                }
+            }
+            function remove(id) {
+                $.ajax({
+                    url: apiBaseUrl + 'Respones/' + id,
+                    type: 'DELETE',
+                    headers: {
+                        "Authorization": "Bearer " + token
+                    },
+                    contentType: "application/json",
+                    success: function (data) {
+                        getAll();
+                    },
+                    error: function (e) {
+                        console.log(e);
+                    }
+                });
+            }
+            //Method
+            // function updateTable(data) {
+            //     $("#categoryTable tbody").empty();
+            //     var tr = '';
+            //     $.each(data, function (i, item) {
+            //         var editButton = '<td> <button type="button" data-id="' + item.id + '" data-text="' + item.text + '"  class="btn btn-warning editButton adminOnly" >Düzenle</a> </td>';
+            //         var deleteButton = '<td><button type="button" data-id="' + item.id + '"  class="btn btn-danger deleteButton adminOnly">Sil</a></td>';
+
+            //         var idCol = "<td>" + (i + 1) + "</td>";
+            //         var nameCol = "<td>" + item.text + "</td>";
+
+            //         tr += "<tr>" + idCol + nameCol + "</tr>";
+            //     });
+            //     $("#categoryTable tbody").append(tr);
+            // }
+            //Method
+            function updateTable(data) {
+                $("#categoryTable tbody").empty();
+                var tr = '';
+                $.each(data, function (i, item) {
+
+                    var idCol = "<td>" + (i + 1) + "</td>";
+                    var questionCol = "<td>" + item.question.text + "</td>";
+                    var textCol = "<td>" + item.text + "</td>";
+                    var userCol = "<td>" + item.user.userName + "</td>";
+
+                    tr += "<tr>" + idCol + questionCol + userCol + textCol + "</tr>";
+                });
+                $("#categoryTable tbody").append(tr);
+            }
+
+
+            //Event
+            $("#createButton").on("click", function () {
+                create();
+            });
+
+            $(document).on("click", ".editButton", function () {
+                var id = $(this).data("id");
+                var name = $(this).data("name");
+
+                $("#editName").html(name);
+                $("#editIdInput").val(id);
+                $("#editInput").val(name);
+
+                $('#editModal').modal('show')
+
+            });
+
+            $(document).on("click", ".deleteButton", function () {
+                if (confirm("Silmeyi onaylıyor musunz?")) {
+                    var id = $(this).data("id");
+                    remove(id);
+                } else {
+
+                }
+            });
+
+            $("#confirmEdit").on("click", function () {
+                edit();
+            });
+        });
+    </script>
+}

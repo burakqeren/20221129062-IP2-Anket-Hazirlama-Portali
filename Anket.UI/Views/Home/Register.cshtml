@@ -1,0 +1,176 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Register</title>
+
+    
+    <link href="~/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+
+    
+    <link href="~/css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-gradient-primary">
+
+    <div class="container">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Kayıt Ol</h1>
+                            </div>
+                            <form class="user">
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" id="name"
+                                               placeholder="Ad">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" id="surname"
+                                               placeholder="Soyad">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <input type="text" class="form-control form-control-user"
+                                               id="phone" placeholder="Telefon Numarası">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control form-control-user" id="email"
+                                           placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" id="username"
+                                           placeholder="Kullanıcı Adı">
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="password" class="form-control form-control-user"
+                                               id="password" placeholder="Şifre">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="password" class="form-control form-control-user"
+                                               id="passwordRepeat" placeholder="Tekrar Şifre">
+                                    </div>
+
+
+                                </div>
+
+
+                                <button type="button" id="registerButton" class="btn btn-primary btn-user btn-block">
+                                    Kayıt Ol!
+                                </button>
+                                <span class="text-danger mt-1" id="error"></span>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="~/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="/js/sb-admin-2.min.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+
+            var apiBaseUrl = "@ViewBag.ApiBaseUrl";
+
+            $("#registerButton").on("click", function () {
+                //Giriş kullanıcı bilgileri
+                var name = $("#name").val();
+                var surname = $("#surname").val();
+                var phone = $("#phone").val();
+                var email = $("#email").val();
+
+                var username = $("#username").val();
+                var password = $("#password").val();
+                var passwordRepeat = $("#passwordRepeat").val();
+
+                var isEmpty = false;
+
+                $('input').each(function () {
+                    if ($(this).val() === '') {
+                        $("#error").html("Fill every box to register.");
+                        isEmpty = true;
+                        return false;
+                    }
+                });
+
+                if (isEmpty) {
+                    event.preventDefault();
+                    return false;
+                }
+
+                if (password !== passwordRepeat) {
+                    $("#error").html("Password and repeat does not match.");
+                    event.preventDefault();
+                    return false;
+                }
+
+                var registerData = new Object();
+
+                registerData.userName = username;
+                registerData.fullName = name + " " + surname;
+                registerData.phone = phone;
+                registerData.phoneNumber = phone;
+                registerData.password = password;
+                registerData.email = email;
+                registerData.id = "0";
+
+                $.ajax({
+                    url: apiBaseUrl + "User/Add",
+                    method: "POST",
+                    data: JSON.stringify(registerData),
+                    contentType: "application/json",
+                    success: function (data) {
+                        if (data.status) {
+                            location.href = "/Login";
+                        } else {
+                            $("#error").html(data.message).fadeOut(5000);
+                        }
+                    },
+                    error: function (e) {
+                        console.log(e);
+                    }
+                });
+
+            });
+
+        });
+    </script>
+</body>
+
+</html>

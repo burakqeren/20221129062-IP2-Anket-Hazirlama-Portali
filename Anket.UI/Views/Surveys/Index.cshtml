@@ -1,0 +1,169 @@
+﻿
+<div class="container mb-3">
+    <a href="/Surveys/Create" class="btn btn-primary ">Yeni anket</a>
+</div>
+<div class="container mb-3">
+    <div class="table-responsive">
+        <table id="surveyTable" class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Anket Adı</th>
+                    <th scope="col">Açıklama</th>
+                    <th scope="col">-</th>
+                    <th scope="col">-</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+@section _scripts {
+    <script>
+        $(document).ready(function () {
+            var apiBaseUrl = "@ViewBag.ApiBaseUrl";
+
+
+            var token = localStorage.getItem("token");
+
+            if (token == "" || token == null) {
+                location.href = "/Login";
+            }
+
+            getAll();
+
+
+            //CRUD
+            function getAll() {
+                $.ajax({
+                    url: apiBaseUrl + 'Surveys',
+                    type: 'GET',
+                    data: {},
+                    headers: {
+                        "Authorization": "Bearer " + token
+                    },
+                    contentType: "application/json",
+                    success: function (data) {
+
+                        updateTable(data);
+                    },
+                    error: function (e) {
+                        console.log(e);
+                    }
+                });
+            }
+            function create() {
+                var value = $("#createInput").val()
+                if (value != "") {
+                    var obj = new Object();
+                    obj.name = value;
+                    $.ajax({
+                        url: apiBaseUrl + 'Surveys',
+                        type: 'POST',
+                        data: JSON.stringify(obj),
+                        headers: {
+                            "Authorization": "Bearer " + token
+                        },
+                        contentType: "application/json",
+                        success: function (data) {
+                            $("#createInput").val("");
+                            getAll();
+
+                        },
+                        error: function (e) {
+                            console.log(e);
+                        }
+                    });
+                }
+
+            }
+            function edit() {
+                var id = $("#editIdInput").val()
+                var value = $("#editInput").val()
+                if (value != "" && id != "" && id != 0) {
+                    var obj = new Object();
+                    obj.name = value;
+                    obj.id = id;
+                    $.ajax({
+                        url: apiBaseUrl + 'Surveys',
+                        type: 'PUT',
+                        data: JSON.stringify(obj),
+                        headers: {
+                            "Authorization": "Bearer " + token
+                        },
+                        contentType: "application/json",
+                        success: function (data) {
+                            $("#editInput").val("");
+                            $("#editIdInput").val("");
+                            $('#editModal').modal('hide')
+                            getAll();
+
+                        },
+                        error: function (e) {
+                            console.log(e);
+                        }
+                    });
+                }
+            }
+            function remove(id) {
+                $.ajax({
+                    url: apiBaseUrl + 'Surveys/' + id,
+                    type: 'DELETE',
+                    headers: {
+                        "Authorization": "Bearer " + token
+                    },
+                    contentType: "application/json",
+                    success: function (data) {
+                        if (data.status) {
+                            getAll();
+                            alert("Deleted.");
+                        } else {
+
+                            alert(data.message);
+                        }
+                    },
+                    error: function (e) {
+                        console.log(e);
+                    }
+                });
+            }
+
+            //Method
+            function updateTable(data) {
+                $("#surveyTable tbody").empty();
+
+                var tr = '';
+                $.each(data, function (i, item) {
+                    var editButton = '<td><a href="/Surveys/Edit/'+item.id+'"   class="btn btn-warning editButton adminOnly" >Görüntüle/Düzenle</a> </td>';
+                    var deleteButton = '<td><button type="button" data-id="' + item.id + '"  class="btn btn-danger deleteButton adminOnly">Sil</a></td>';
+
+                    var idCol = "<td>" + (i + 1) + "</td>";
+                    var nameCol = "<td>" + item.name + "</td>";
+                    var descCol = "<td>" + shortDescription(item.description) + "..." + "</td>";
+
+
+                    tr += "<tr>" + idCol + nameCol + descCol + editButton + deleteButton + "</tr>";
+                });
+
+                $("#surveyTable tbody").append(tr);
+            }
+
+            function shortDescription(str) {
+                return str.length > 50 ? str.substring(0, 50) : str;
+            }
+            //Event
+
+            $(document).on("click", ".deleteButton", function () {
+                if (confirm("Silmeyi onaylıyor musunz?")) {
+                    var id = $(this).data("id");
+                    remove(id);
+                } else {
+
+                }
+            });
+        });
+    </script>
+}

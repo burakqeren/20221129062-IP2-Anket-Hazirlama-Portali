@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34714.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{1293B5E4-EB0A-4136-B862-96DF6904904A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Anket.UI", "Anket.UI\Anket.UI.csproj", "{9976E9B6-1BBD-4F2D-A035-0A3E5F418E7C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1293B5E4-EB0A-4136-B862-96DF6904904A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1293B5E4-EB0A-4136-B862-96DF6904904A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1293B5E4-EB0A-4136-B862-96DF6904904A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1293B5E4-EB0A-4136-B862-96DF6904904A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9976E9B6-1BBD-4F2D-A035-0A3E5F418E7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9976E9B6-1BBD-4F2D-A035-0A3E5F418E7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9976E9B6-1BBD-4F2D-A035-0A3E5F418E7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9976E9B6-1BBD-4F2D-A035-0A3E5F418E7C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {086D27A0-8A3E-4ED4-BC67-BC774E7B91FC}
+	EndGlobalSection
+EndGlobal

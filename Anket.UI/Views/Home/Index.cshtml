@@ -1,0 +1,83 @@
+﻿@{
+    Layout = "_PageLayout";
+}
+
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-3">Hoşgeldiniz.</h1>
+        <p>Anket doldurmak için giriş yapabilirsiniz.</p>
+        @*  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a></p> *@
+    </div>
+</div>
+<div class="container ">
+    <div class="row justify-content-center">
+
+    <img src="https://cezannehr.com/wp-content/uploads/2022/05/Pulse-survey.png" style="width:75%;height:auto" />
+    </div>
+</div>
+<div class="container">
+
+    <div class="my-3 p-3 card">
+        <h6 class="border-bottom border-gray pb-2 mb-0">Anketler</h6>
+        <div id="surveys">
+
+        
+        </div>
+       
+    </div>
+</div>
+
+
+@section _scripts {
+    <script>
+        $(document).ready(function () {
+            var apiBaseUrl = "@ViewBag.ApiBaseUrl";
+
+            var token = localStorage.getItem("token");
+
+            if (token == "" || token == null) {
+               
+               
+            }
+            else{
+
+            getAll();
+            }
+
+
+            //CRUD
+            function getAll() {
+                $.ajax({
+                    url: apiBaseUrl + 'Surveys',
+                    type: 'GET',
+                    data: {},
+                    headers: {
+                        "Authorization": "Bearer " + token
+                    },
+                    contentType: "application/json",
+                    success: function (data) {
+
+                        updateTable(data);
+                    },
+                    error: function (e) {
+                        console.log(e);
+                    }
+                });
+            }
+            function updateTable(data) {
+                $("#surveys").empty();
+
+                $.each(data, function (i, item) {
+                    var surv = '<div class="media text-muted pt-3"><a href="/Answer/'+item.id +'" class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray"><strong class="d-block text-gray-dark">'+item.name+'</strong>'+item.description+'</a></div>';
+
+
+
+
+                   
+                    $("#surveys").append(surv);
+                });
+
+            }
+        });
+    </script>
+}

@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Hasan\\Desktop\\Anket Haz\u0131rlama Portal\u0131 - Burak Eren Ye\u015Filyurt\\WebApplication1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9976E9B6-1BBD-4F2D-A035-0A3E5F418E7C}|Anket.UI\\Anket.UI.csproj|c:\\users\\hasan\\desktop\\anket haz\u0131rlama portal\u0131 - burak eren ye\u015Filyurt\\webapplication1\\anket.ui\\controllers\\surveyscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9976E9B6-1BBD-4F2D-A035-0A3E5F418E7C}|Anket.UI\\Anket.UI.csproj|solutionrelative:anket.ui\\controllers\\surveyscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SurveysController.cs",
+              "DocumentMoniker": "C:\\Users\\Hasan\\Desktop\\Anket Haz\u0131rlama Portal\u0131 - Burak Eren Ye\u015Filyurt\\WebApplication1\\Anket.UI\\Controllers\\SurveysController.cs",
+              "RelativeDocumentMoniker": "Anket.UI\\Controllers\\SurveysController.cs",
+              "ToolTip": "C:\\Users\\Hasan\\Desktop\\Anket Haz\u0131rlama Portal\u0131 - Burak Eren Ye\u015Filyurt\\WebApplication1\\Anket.UI\\Controllers\\SurveysController.cs",
+              "RelativeToolTip": "Anket.UI\\Controllers\\SurveysController.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAQwDAAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-04T08:47:00.977Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

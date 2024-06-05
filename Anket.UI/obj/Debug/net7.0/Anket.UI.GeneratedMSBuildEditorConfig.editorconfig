@@ -1,0 +1,107 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Anket.UI
+build_property.RootNamespace = Anket.UI
+build_property.ProjectDir = C:\Users\eren\Desktop\Anket Hazırlama Portalı - Burak Eren Yeşilyurt\WebApplication1\Anket.UI\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\eren\Desktop\Anket Hazırlama Portalı - Burak Eren Yeşilyurt\WebApplication1\Anket.UI
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/eren/Desktop/Anket Hazırlama Portalı - Burak Eren Yeşilyurt/WebApplication1/Anket.UI/Views/Home/Admin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/eren/Desktop/Anket Hazırlama Portalı - Burak Eren Yeşilyurt/WebApplication1/Anket.UI/Views/Home/Categories.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDYXRlZ29yaWVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/eren/Desktop/Anket Hazırlama Portalı - Burak Eren Yeşilyurt/WebApplication1/Anket.UI/Views/Home/Contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/eren/Desktop/Anket Hazırlama Portalı - Burak Eren Yeşilyurt/WebApplication1/Anket.UI/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/eren/Desktop/Anket Hazırlama Portalı - Burak Eren Yeşilyurt/WebApplication1/Anket.UI/Views/Home/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/eren/Desktop/Anket Hazırlama Portalı - Burak Eren Yeşilyurt/WebApplication1/Anket.UI/Views/Home/Questions.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxRdWVzdGlvbnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/eren/Desktop/Anket Hazırlama Portalı - Burak Eren Yeşilyurt/WebApplication1/Anket.UI/Views/Home/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/eren/Desktop/Anket Hazırlama Portalı - Burak Eren Yeşilyurt/WebApplication1/Anket.UI/Views/Home/Responses.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZXNwb25zZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/eren/Desktop/Anket Hazırlama Portalı - Burak Eren Yeşilyurt/WebApplication1/Anket.UI/Views/Home/Surveys.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTdXJ2ZXlzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/eren/Desktop/Anket Hazırlama Portalı - Burak Eren Yeşilyurt/WebApplication1/Anket.UI/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/eren/Desktop/Anket Hazırlama Portalı - Burak Eren Yeşilyurt/WebApplication1/Anket.UI/Views/Shared/_PageHeader.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9QYWdlSGVhZGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/eren/Desktop/Anket Hazırlama Portalı - Burak Eren Yeşilyurt/WebApplication1/Anket.UI/Views/Shared/_PageLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9QYWdlTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/eren/Desktop/Anket Hazırlama Portalı - Burak Eren Yeşilyurt/WebApplication1/Anket.UI/Views/Shared/_Sidebar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TaWRlYmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/eren/Desktop/Anket Hazırlama Portalı - Burak Eren Yeşilyurt/WebApplication1/Anket.UI/Views/Shared/_Topbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Ub3BiYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/eren/Desktop/Anket Hazırlama Portalı - Burak Eren Yeşilyurt/WebApplication1/Anket.UI/Views/Surveys/AnswerSurvey.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VydmV5c1xBbnN3ZXJTdXJ2ZXkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/eren/Desktop/Anket Hazırlama Portalı - Burak Eren Yeşilyurt/WebApplication1/Anket.UI/Views/Surveys/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VydmV5c1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/eren/Desktop/Anket Hazırlama Portalı - Burak Eren Yeşilyurt/WebApplication1/Anket.UI/Views/Surveys/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VydmV5c1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/eren/Desktop/Anket Hazırlama Portalı - Burak Eren Yeşilyurt/WebApplication1/Anket.UI/Views/Surveys/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VydmV5c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/eren/Desktop/Anket Hazırlama Portalı - Burak Eren Yeşilyurt/WebApplication1/Anket.UI/Views/Users/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/eren/Desktop/Anket Hazırlama Portalı - Burak Eren Yeşilyurt/WebApplication1/Anket.UI/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/eren/Desktop/Anket Hazırlama Portalı - Burak Eren Yeşilyurt/WebApplication1/Anket.UI/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/eren/Desktop/Anket Hazırlama Portalı - Burak Eren Yeşilyurt/WebApplication1/Anket.UI/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-60g4nzjkj9
